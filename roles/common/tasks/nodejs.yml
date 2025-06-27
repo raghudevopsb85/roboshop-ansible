@@ -16,4 +16,8 @@
   args:
     chdir: /app
 
+- name: Load SystemD Service
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd
 

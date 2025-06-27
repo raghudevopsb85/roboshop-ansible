@@ -3,4 +3,11 @@
     name: common
     tasks_from: nodejs
 
+- name: Copy MongoDB repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Load Schema
+  ansible.builtin.shell: mongosh --host mongodb-dev.rdevopsb85.online </app/db/master-data.js
 
