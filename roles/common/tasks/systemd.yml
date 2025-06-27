@@ -8,4 +8,5 @@
     daemon_reload: true
     enabled: true
     state: restarted
+    name: "{{ component }}"
 
