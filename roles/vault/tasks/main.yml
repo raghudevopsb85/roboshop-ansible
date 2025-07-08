@@ -1,0 +1,13 @@
+- name: Download Hashicorp repo file
+  ansible.builtin.copy:
+    src: hashicorp.repo
+    dest: /etc/yum.repos.d/hashicorp.repo
+
+- name: Install Vault
+  ansible.builtin.dnf:
+    name: vault
+    state: started
+
+
+
+
