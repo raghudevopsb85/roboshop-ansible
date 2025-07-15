@@ -1,5 +1,12 @@
-- name: Load NodeJS
+# - name: Load NodeJS
+#   ansible.builtin.import_role:
+#     name: common
+#     tasks_from: nodejs
+#
+
+
+- name: Load Docker
   ansible.builtin.import_role:
     name: common
-    tasks_from: nodejs
+    tasks_from: docker
 
