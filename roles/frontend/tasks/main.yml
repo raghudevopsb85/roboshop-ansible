@@ -51,12 +51,12 @@
       - "80:80"
     env:
       CATALOGUE_HOST: catalogue-dev.rdevopsb85.online
-      CATALOGUE_PORT: 8080
+      CATALOGUE_PORT: "8080"
       USER_HOST: user-dev.rdevopsb85.online
-      USER_PORT: 8080
+      USER_PORT: "8080"
       CART_HOST: cart-dev.rdevopsb85.online
-      CART_PORT: 8080
+      CART_PORT: "8080"
       SHIPPING_HOST: shipping-dev.rdevopsb85.online
-      SHIPPING_PORT: 8080
+      SHIPPING_PORT: "8080"
       PAYMENT_HOST: payment-dev.rdevopsb85.online
-      PAYMENT_PORT: 8080
+      PAYMENT_PORT: "8080"
