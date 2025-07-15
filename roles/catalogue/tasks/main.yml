@@ -35,10 +35,8 @@
 
 - name: Schema Container
   community.docker.docker_container:
-    name: catalogue
-    image: public.ecr.aws/w8x4g9h7/roboshop-v3/catalogue
-    ports:
-      - "8080:8080"
+    name: catalogue-schema
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
     env:
       DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:DB_TYPE token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
       APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/catalogue:APP_GIT_URL token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
