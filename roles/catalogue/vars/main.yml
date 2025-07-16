@@ -7,3 +7,4 @@ lvm_sizes:
   - {lvm: "RootVG-logVol", size: 2 }
   - {lvm: "RootVG-varTmpVol", size: 2 }
   - {lvm: "RootVG-auditVol", size: 4.4 }
+

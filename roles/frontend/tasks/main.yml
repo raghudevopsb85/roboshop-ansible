@@ -38,6 +38,11 @@
 #
 #
 
+
+- name: Load common main
+  ansible.builtin.import_role:
+    name: common
+
 - name: Load Docker
   ansible.builtin.import_role:
     name: common
