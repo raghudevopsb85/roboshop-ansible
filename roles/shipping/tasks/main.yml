@@ -39,13 +39,13 @@
 
 
 - name: Schema Container
+  loop:
+    - app-user
+    - schema
+    - master-data
   community.docker.docker_container:
     name: shipping-schema-{{ item }}
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
-    loop:
-      - app-user
-      - schema
-      - master-data
     env:
       DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:DB_TYPE token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
       APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:APP_GIT_URL token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
