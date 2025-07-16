@@ -43,14 +43,14 @@
     name: shipping-schema-{{ item }}
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
     loop:
-      - db/app-user.sql
-      - db/schema.sql
-      - db/master-data.sql
+      - app-user
+      - schema
+      - master-data
     env:
       DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:DB_TYPE token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
       APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:APP_GIT_URL token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
       DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:DB_HOST token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
       DB_USER: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:DB_USER token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
       DB_PASS: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{env}}/data/shipping:DB_PASS token={{ token }} url=http://vault-internal.rdevopsb85.online:8200') }}"
-      #SCHEMA_FILE: "{{  item }}"
+      SCHEMA_FILE: "db/{{  item }}.sql"
 
