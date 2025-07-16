@@ -1,1 +1,9 @@
 component: catalogue
+
+lvm_sizes:
+  - {lvm: "RootVG-homeVol", size: 6 }
+  - {lvm: "RootVG-varVol", size: 11 }
+  - {lvm: "RootVG-homeVol", size: 6 }
+  - {lvm: "RootVG-logVol", size: 2 }
+  - {lvm: "RootVG-varTmpVol", size: 2 }
+  - {lvm: "RootVG-auditVol", size: 4.4 }
