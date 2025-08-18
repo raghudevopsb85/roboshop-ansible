@@ -1,0 +1,16 @@
+- name: Extend Partition
+  community.general.parted:
+    device: /dev/nvme0n1
+    number: 4
+    part_end: "100%"
+    resize: true
+    state: present
+
+- name: Update Log Vol Sizes
+  loop: "{{ lvm_disks }}"
+  community.general.lvol:
+    vg: "{{ item.vgname }}"
+    lv: "{{ item.lvmname }}"
+    size: "{{ item.size }}"
+
+
