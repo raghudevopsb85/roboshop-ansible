@@ -85,6 +85,7 @@
     name:
       - nodejs
       - maven
+      - npm
 
 
 
