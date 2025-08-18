@@ -3,7 +3,8 @@
 
 - name: Load common lvm
   ansible.builtin.import_role:
-    name: lvm
+    name: common
+    tasks_from: lvm
 
 - name: Add github runner user
   ansible.builtin.user:
