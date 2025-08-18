@@ -8,5 +8,5 @@
     vg: "{{ item.vgname }}"
     lv: "{{ item.lvmname }}"
     size: "{{ item.size }}"
-
+    resizefs: true
 
