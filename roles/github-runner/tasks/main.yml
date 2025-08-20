@@ -28,11 +28,6 @@
     home: /github-runner
     groups: docker
 
-- name: HVAC python module
-  ansible.builtin.pip:
-    name: hvac
-    executable: pip3.11
-
 - name: Login to ECR
   ansible.builtin.shell: |
     /usr/local/bin/aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 739561048503.dkr.ecr.us-east-1.amazonaws.com
@@ -41,7 +36,7 @@
   community.docker.docker_container:
     name: runner1
     image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runner
-    state: present
+    state: started
     recreate: true
     env:
       NAME: runner1
