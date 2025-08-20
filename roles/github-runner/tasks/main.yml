@@ -38,6 +38,7 @@
     image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runner
     state: started
     recreate: true
+    pull: always
     env:
       NAME: "{{ item }}"
       TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:RUNNER_TOKEN token={{ vault_token }} url={{ vault_url }}') }}"
