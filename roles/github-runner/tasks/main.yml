@@ -1,7 +1,7 @@
 - name: Runner container
   community.docker.docker_container:
     name: "{{ item }}"
-    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runner
+    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runnerx
     state: started
     recreate: true
     pull: always
