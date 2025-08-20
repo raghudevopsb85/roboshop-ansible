@@ -1,7 +1,7 @@
 - name: Runner container
   community.docker.docker_container:
     name: "{{ item }}"
-    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runnerx
+    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runner
     state: started
     recreate: true
     pull: always
@@ -17,7 +17,7 @@
   ignore_errors: yes
 
 - name: Run from Scratch
-  when: out.failed
+  when: out.failed is defined
   debug:
     msg: "{{ out }}"
 # - name: Set Prompt
