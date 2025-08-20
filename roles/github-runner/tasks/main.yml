@@ -16,11 +16,10 @@
   register: out
   ignore_errors: yes
 
-- name: out
+- name: Run from Scratch
+  when: out.failed
   debug:
     msg: "{{ out }}"
-
-# - name: Run from Scratch
 # - name: Set Prompt
 #   ansible.builtin.shell: set-prompt github-runner
 #
