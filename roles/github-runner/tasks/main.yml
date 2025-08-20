@@ -28,7 +28,22 @@
     home: /github-runner
     groups: docker
 
+- name: Login to ECR
+  ansible.builtin.shell: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 739561048503.dkr.ecr.us-east-1.amazonaws.com
 
+- name: Login to ECR
+  ansible.builtin.shell: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 739561048503.dkr.ecr.us-east-1.amazonaws.com
+
+- name: Runner container
+  community.docker.docker_container:
+    name: runner1
+    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/runner
+    state: present
+    recreate: true
+    env:
+      NAME: runner1
+      TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:RUNNER_TOKEN token={{ vault_token }} url={{ vault_url }}') }}"
+      ORG: "https://github.com/raghudevopsb85"
 
 
 
