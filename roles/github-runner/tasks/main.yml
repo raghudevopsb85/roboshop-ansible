@@ -5,6 +5,8 @@
     state: started
     recreate: true
     pull: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     env:
       NAME: "{{ item }}"
       TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:RUNNER_TOKEN token={{ vault_token }} url={{ vault_url }}') }}"
@@ -60,6 +62,8 @@
         state: started
         recreate: true
         pull: always
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
         env:
           NAME: "{{ item }}"
           TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-infra/data/github-runner:RUNNER_TOKEN token={{ vault_token }} url={{ vault_url }}') }}"
