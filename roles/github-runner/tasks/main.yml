@@ -5,6 +5,7 @@
     state: started
     recreate: true
     pull: always
+    restart_policy: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     env:
@@ -68,6 +69,7 @@
         state: started
         recreate: true
         pull: always
+        restart_policy: always
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
         env:
