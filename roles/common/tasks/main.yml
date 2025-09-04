@@ -10,3 +10,8 @@
   loop: "{{ lvm_sizes }}"
   ignore_errors: yes
 
+- name: Node exporter
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: node_exporter
+
