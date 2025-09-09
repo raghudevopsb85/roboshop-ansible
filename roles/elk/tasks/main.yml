@@ -1,5 +1,5 @@
 - name: Set Prompt
-  ansible.builtin.shell: set-prompt {{ tool_name }}
+  ansible.builtin.shell: set-prompt {{ role_name }}
 
 - name: Copy Elastic repo file
   ansible.builtin.template:
